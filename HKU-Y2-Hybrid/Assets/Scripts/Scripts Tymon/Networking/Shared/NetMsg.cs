@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-// The client and server use this to identify messages. This is not secure as a client can use this to send false information
+﻿// The client and server use this to identify messages. This is not secure as a client can use this to send false information
 [System.Serializable] // All msg have to be serilizable
 public abstract class NetMsg
 {

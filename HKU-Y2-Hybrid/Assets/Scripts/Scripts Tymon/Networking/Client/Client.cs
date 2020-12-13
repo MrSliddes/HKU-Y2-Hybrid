@@ -14,6 +14,12 @@ public class Client : MonoBehaviour
     public GameObject connectToServerButton;
     public GameObject menuConnectToServer;
     public GameObject menuJoinGame;
+    public GameObject lobbyCamera;
+    public GameObject playerPrefab;
+    public GameObject otherClientPlayerPrefab;
+    public Transform serverObjects;
+
+    public Dictionary<int, OtherClientPlayer> connectedPlayers = new Dictionary<int, OtherClientPlayer>(); // contains all the other connected players
 
     private const int MAX_USER = 100;
     private const int PORT = 26000;
@@ -23,8 +29,8 @@ public class Client : MonoBehaviour
 
     private byte reliableChannel;
     private byte error;
-    private int hostId;
-    private int connectionId;
+    private int hostId; // web or standalone
+    private int connectionId = 0;
 
     private bool isInit = false;
 
@@ -32,6 +38,7 @@ public class Client : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         //Init();
+        lobbyCamera.SetActive(true);
     }
 
     private void Update()
@@ -64,6 +71,7 @@ public class Client : MonoBehaviour
                 // Convert binary back to data
                 BinaryFormatter formatter = new BinaryFormatter();
                 MemoryStream ms = new MemoryStream(receiveBuffer);
+                ms.Position = 0;
                 NetMsg msg = (NetMsg)formatter.Deserialize(ms);
 
                 OnData(connectionId, channelId, receiveHostId, msg);
@@ -79,6 +87,7 @@ public class Client : MonoBehaviour
                 connectToServerButton.SetActive(true);
                 menuConnectToServer.SetActive(true);
                 menuJoinGame.SetActive(false);
+                lobbyCamera.SetActive(true);
                 break;
             case NetworkEventType.Nothing:
                 break;
@@ -100,13 +109,22 @@ public class Client : MonoBehaviour
 
     public void JoinGame(TextMeshProUGUI t)
     {
-        SendServer(new Net_CreatePlayer(t.text));
+        Net_CreatePlayer cp = new Net_CreatePlayer()
+        { 
+            Name = t.text.Trim((char)8203)
+        };
+
+        SendServer(cp);
 
         // Client now needs conformation that he joined
     }
 
     #region Send
 
+    /// <summary>
+    /// Sends data to the server
+    /// </summary>
+    /// <param name="msg"></param>
     public void SendServer(NetMsg msg)
     {
         // This is where we hold our data
@@ -115,17 +133,14 @@ public class Client : MonoBehaviour
         // Convert data into a byte[]
         BinaryFormatter formatter = new BinaryFormatter();
         MemoryStream ms = new MemoryStream(buffer);
+        ms.Position = 0;
         formatter.Serialize(ms, msg);
 
         // Send to server
         NetworkTransport.Send(hostId, connectionId, reliableChannel, buffer, BYTE_SIZE, out error);
     }
 
-    // Messages
-    public void MsgCreatePlayer()
-    {
-        SendServer(new Net_CreatePlayer("name"));
-    }
+    
 
     #endregion
 
@@ -165,6 +180,29 @@ public class Client : MonoBehaviour
     private void OnData(int connectionId, int channelId, int receiveHostId, NetMsg msg)
     {
         Debug.Log("Receive message of type: " + msg.OperationCode);
+
+        switch(msg.OperationCode)
+        {
+            case NetOperationCode.None: Debug.LogWarning("Unexpected NET Operation"); break;
+            case NetOperationCode.ClientJoinedGame:
+                // This client joined the game (conformation)
+                Debug.Log("Client connected to server and joined game");
+                GameObject a = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+                lobbyCamera.SetActive(false);
+                menuJoinGame.SetActive(false);
+                break;
+            case NetOperationCode.PlayerJoinedGame:
+                // A other player joined the game
+                Debug.Log("A player joined the game");
+                GameObject b = Instantiate(otherClientPlayerPrefab, new Vector3(Random.Range(0, 5), 0, Random.Range(0, 5)), Quaternion.identity);
+                Net_PlayerJoined pj = (Net_PlayerJoined)msg;
+                connectedPlayers[pj.otherClientId].playerGameObject = b;
+
+                break;
+            default:
+                Debug.LogWarning("NetMsg not included! " + msg.OperationCode);
+                break;
+        }
     }
 
 }

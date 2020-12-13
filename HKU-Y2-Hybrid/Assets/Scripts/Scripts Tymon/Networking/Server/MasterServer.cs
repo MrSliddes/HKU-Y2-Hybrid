@@ -58,8 +58,10 @@ public class MasterServer : MonoBehaviour // for more complex stuff, create 2 sc
                 // Convert binary back to data
                 BinaryFormatter formatter = new BinaryFormatter();
                 MemoryStream ms = new MemoryStream(receiveBuffer);
+                ms.Position = 0;
                 NetMsg msg = (NetMsg)formatter.Deserialize(ms);
 
+                Debug.Log("Received data: " + msg.GetType().ToString());
                 OnData(connectionId, channelId, receiveHostId, msg);
                 break;
             case NetworkEventType.ConnectEvent:
@@ -131,11 +133,11 @@ public class MasterServer : MonoBehaviour // for more complex stuff, create 2 sc
     /// <summary>
     /// Check what message it is and what to do with it
     /// </summary>
-    /// <param name="connectionId"></param>
+    /// <param name="connectionId">The client connection id</param>
     /// <param name="channelId"></param>
     /// <param name="receiveHostId"></param>
     /// <param name="msg"></param>
-    private void OnData(int connectionId, int channelId, int receiveHostId, NetMsg msg)
+    private void OnData(int connectionId, int channelId, int receivingHostId, NetMsg msg)
     {
         Debug.Log("Receive message of type: " + msg.OperationCode);
 
@@ -144,14 +146,24 @@ public class MasterServer : MonoBehaviour // for more complex stuff, create 2 sc
             case NetOperationCode.None: break;
             case NetOperationCode.CreatePlayer:
                 // Create a player
-                Debug.Log("Creating new player");
+                Net_CreatePlayer cp = (Net_CreatePlayer)msg;
+                Debug.Log("Creating new player named: " + cp.Name);
                 clientsActive[connectionId] = true;
-                // send to every client that a new player has joined
+                // Send to client that he joined the game
+                SendClient(receivingHostId, connectionId, new Net_ClientJoined());
 
-
+                // send to every client that a new player has joined, except the client that joined
+                for(int i = 0; i < clientsActive.Length; i++)
+                {
+                    if(clientsActive[i] && i != connectionId)
+                    {
+                        SendClient(receivingHostId, i, new Net_PlayerJoined(connectionId));
+                        Debug.Log("Send message to user: " + i);
+                    }
+                }
                 break;
 
-            default:
+            default: Debug.LogWarning("NetMsg not included! " + msg.OperationCode);
                 break;
         }
     }
