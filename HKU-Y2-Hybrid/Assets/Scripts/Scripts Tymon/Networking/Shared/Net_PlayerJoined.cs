@@ -5,11 +5,12 @@
 public class Net_PlayerJoined : NetMsg
 {
     public int otherClientId;
-    //public string otherClientName;
+    public string otherClientName;
 
-    public Net_PlayerJoined(int otherClientId)
+    public Net_PlayerJoined(int otherClientId, string otherClientName)
     {
         OperationCode = NetOperationCode.PlayerJoinedGame;
         this.otherClientId = otherClientId;
+        this.otherClientName = otherClientName;
     }
 }

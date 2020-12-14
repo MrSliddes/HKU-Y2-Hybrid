@@ -22,8 +22,8 @@ public class Client : MonoBehaviour
     public Dictionary<int, OtherClientPlayer> connectedPlayers = new Dictionary<int, OtherClientPlayer>(); // contains all the other connected players
 
     private const int MAX_USER = 100;
-    private const int PORT = 26000;
-    private const int WEB_PORT = 26001;
+    private const int PORT = 2600;
+    private const int WEB_PORT = 2601;
     private const int BYTE_SIZE = 1024;
     private string SERVER_IP = "127.0.0.1"; // 127.0.0.1 is local host
 
@@ -193,11 +193,19 @@ public class Client : MonoBehaviour
                 break;
             case NetOperationCode.PlayerJoinedGame:
                 // A other player joined the game
-                Debug.Log("A player joined the game");
-                GameObject b = Instantiate(otherClientPlayerPrefab, new Vector3(Random.Range(0, 5), 0, Random.Range(0, 5)), Quaternion.identity);
                 Net_PlayerJoined pj = (Net_PlayerJoined)msg;
-                connectedPlayers[pj.otherClientId].playerGameObject = b;
-
+                Debug.Log("A player joined the game with the name: " + pj.otherClientName);
+                GameObject b = Instantiate(otherClientPlayerPrefab, new Vector3(Random.Range(0, 5), 0, Random.Range(0, 5)), Quaternion.identity);
+                if(!connectedPlayers.ContainsKey(pj.otherClientId))
+                {
+                    connectedPlayers.Add(pj.otherClientId, new OtherClientPlayer(b));
+                }
+                else
+                {
+                    connectedPlayers[pj.otherClientId].playerGameObject = b;
+                }
+                // Set name
+                b.GetComponent<OtherClientGameObject>().name.text = pj.otherClientName;
                 break;
             default:
                 Debug.LogWarning("NetMsg not included! " + msg.OperationCode);

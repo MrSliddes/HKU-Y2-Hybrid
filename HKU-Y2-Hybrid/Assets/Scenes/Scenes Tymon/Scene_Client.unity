@@ -194,7 +194,7 @@ MonoBehaviour:
   menuJoinGame: {fileID: 2102628035}
   lobbyCamera: {fileID: 1002542942}
   playerPrefab: {fileID: 4885533715399962933, guid: d1ae2a4eb363620488f09c880e655733, type: 3}
-  otherClientPlayerPrefab: {fileID: 127147590}
+  otherClientPlayerPrefab: {fileID: 1270632157137481463, guid: 9c53a7bc0f3db9041b903d8edd74a98f, type: 3}
   serverObjects: {fileID: 1232806907}
 --- !u!4 &9591960
 Transform:
@@ -210,11 +210,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &127147590 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1270632157137481463, guid: 9c53a7bc0f3db9041b903d8edd74a98f, type: 3}
-  m_PrefabInstance: {fileID: 1270632157060673713}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &134824956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,6 +2325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Other Client Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1270632157137481463, guid: 9c53a7bc0f3db9041b903d8edd74a98f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c53a7bc0f3db9041b903d8edd74a98f, type: 3}
 --- !u!1001 &4885533717122750476
@@ -2386,6 +2385,10 @@ PrefabInstance:
     - target: {fileID: 4885533715399962933, guid: d1ae2a4eb363620488f09c880e655733, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885533715399962933, guid: d1ae2a4eb363620488f09c880e655733, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1ae2a4eb363620488f09c880e655733, type: 3}
