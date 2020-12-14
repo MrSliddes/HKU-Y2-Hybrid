@@ -156,7 +156,7 @@ public class Client : MonoBehaviour
         HostTopology topo = new HostTopology(cc, MAX_USER);
 
         // Client only code
-        hostId = NetworkTransport.AddHost(topo, 0, SERVER_IP);
+        hostId = NetworkTransport.AddHost(topo, 0);
 #if UNITY_WEBGL && !UNITY_EDITOR
         // Webclient client
         connectionId = NetworkTransport.Connect(hostId, SERVER_IP, WEB_PORT, 0, out error);
