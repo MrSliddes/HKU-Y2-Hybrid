@@ -8,10 +8,13 @@ using UnityEngine.Networking;
 //https://www.youtube.com/watch?v=amy3L3pGWH0&list=PLDrcLKDFENwI0Bg6bwNuPcP0K-xDAAsrc&index=2
 public class MasterServer : MonoBehaviour // for more complex stuff, create 2 scenes as the server code is also included into the client copy
 {
+    public string ip;
+
     private const int MAX_USERS = 100;
-    private const int PORT = 26000;
+    private const int PORT = 26000; //26000
     private const int WEB_PORT = 26001;
     private const int BYTE_SIZE = 1024;
+    private string SERVER_IP = "";
 
     private byte reliableChannel;
     private byte error;
@@ -109,6 +112,7 @@ public class MasterServer : MonoBehaviour // for more complex stuff, create 2 sc
 
     private void Init()
     {
+        SERVER_IP = ip;
         Debug.Log("Starting server...");
         NetworkTransport.Init();
 
@@ -118,14 +122,15 @@ public class MasterServer : MonoBehaviour // for more complex stuff, create 2 sc
         HostTopology topo = new HostTopology(cc, MAX_USERS);
 
         // Server only
-        hostId = NetworkTransport.AddHost(topo, PORT, null);
-        webHostId = NetworkTransport.AddWebsocketHost(topo, WEB_PORT, null); // Allows connection trough browser
+        
+        hostId = NetworkTransport.AddHost(topo, PORT, SERVER_IP);
+        webHostId = NetworkTransport.AddWebsocketHost(topo, WEB_PORT, SERVER_IP); // Allows connection trough browser
 
         // Set array
         clientsActive = new bool[MAX_USERS];
 
         isInit = true;
-        Debug.Log(string.Format("Opening connection on part {0} and webport {1}", PORT, WEB_PORT));
+        Debug.Log(string.Format("Opening connection on port {0} and webport {1} on ip {2}", PORT, WEB_PORT, SERVER_IP));
     }
 
     #region OnData

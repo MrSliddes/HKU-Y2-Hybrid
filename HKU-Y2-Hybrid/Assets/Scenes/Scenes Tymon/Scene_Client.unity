@@ -2330,10 +2330,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Other Client Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1270632157137481463, guid: 9c53a7bc0f3db9041b903d8edd74a98f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c53a7bc0f3db9041b903d8edd74a98f, type: 3}
 --- !u!1001 &4885533717122750476

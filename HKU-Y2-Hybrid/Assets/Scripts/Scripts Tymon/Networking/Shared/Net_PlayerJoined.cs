@@ -5,6 +5,7 @@
 public class Net_PlayerJoined : NetMsg
 {
     public int otherClientId;
+    //public string otherClientName;
 
     public Net_PlayerJoined(int otherClientId)
     {
