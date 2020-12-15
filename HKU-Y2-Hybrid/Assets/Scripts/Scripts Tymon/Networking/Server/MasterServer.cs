@@ -11,8 +11,8 @@ public class MasterServer : MonoBehaviour // for more complex stuff, create 2 sc
     public string ip;
 
     private const int MAX_USERS = 100;
-    private const int PORT = 2600; //26000
-    private const int WEB_PORT = 2601;
+    private const int PORT = 4444; //26000
+    private const int WEB_PORT = 4445;
     private const int BYTE_SIZE = 1024;
     private string SERVER_IP = "";
 
