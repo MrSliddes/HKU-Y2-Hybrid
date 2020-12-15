@@ -37,6 +37,6 @@ public class BeerPongBall : MonoBehaviour, IAbleToPickUp
     {
         transform.parent = null;
         rb.isKinematic = false;
-        rb.AddForce(transform.forward * 10, ForceMode.Impulse);
+        rb.AddForce(Camera.main.transform.forward * 10, ForceMode.Impulse);
     }
 }

@@ -5,12 +5,14 @@ using UnityEngine;
 public class WebCamDisplay : MonoBehaviour
 {
     private WebCamTexture webCamTexture;
+    public Material matWebcam;
 
     // Start is called before the first frame update
     void Start()
     {
         webCamTexture = new WebCamTexture();
-        this.GetComponent<MeshRenderer>().material.mainTexture = webCamTexture;
+        //this.GetComponent<MeshRenderer>().material.mainTexture = webCamTexture;
+        matWebcam.mainTexture = webCamTexture;
         StartCoroutine(CheckCam());
     }
 
