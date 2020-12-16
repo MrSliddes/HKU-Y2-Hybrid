@@ -22,8 +22,8 @@ public class Client : MonoBehaviour
     public Dictionary<int, OtherClientPlayer> connectedPlayers = new Dictionary<int, OtherClientPlayer>(); // contains all the other connected players
 
     private const int MAX_USER = 100;
-    private const int PORT = 2600;
-    private const int WEB_PORT = 2601;
+    private const int PORT = 4444;
+    private const int WEB_PORT = 4445;
     private const int BYTE_SIZE = 1024;
     private string SERVER_IP = "127.0.0.1"; // 127.0.0.1 is local host
 
