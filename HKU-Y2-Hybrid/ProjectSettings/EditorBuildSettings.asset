@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Scenes Tymon/Scene_Server.unity
     guid: 0492c3b3e1c27284bada3b339ceebdc9
   - enabled: 1
+    path: Assets/Scenes/Scenes Ischa/MainMenu.unity
+    guid: ac41b53c414dde9498aa6129a40ef351
+  - enabled: 1
     path: Assets/Scenes/Scenes Mitchell/3DBlockout.unity
     guid: 2b85af05124b3474391bc85f74292ec1
   m_configObjects: {}
