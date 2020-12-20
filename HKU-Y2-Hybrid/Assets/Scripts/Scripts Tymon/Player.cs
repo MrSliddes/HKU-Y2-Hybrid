@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     private Vector3 target = Vector3.zero;
 
-    private IAbleToPickUp itemPickedUp = null;
+    private IInteractable itemPickedUp = null;
 
     /// <summary>
     /// Shows what way the player wants to move
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
             if(itemPickedUp != null)
             {
                 // Do something with item
-                itemPickedUp.Trow();
+                itemPickedUp.OnDeInteract();
                 itemPickedUp = null;
             }
             else
@@ -87,10 +87,14 @@ public class Player : MonoBehaviour
                 if(Physics.Raycast(ray, out hit))
                 {
                     // Ray hit check if component
-                    if(hit.transform.GetComponent<IAbleToPickUp>() != null)
+                    if(hit.transform.GetComponent<IInteractable>() != null)
                     {
-                        itemPickedUp = hit.transform.GetComponent<IAbleToPickUp>();
-                        itemPickedUp.PickUp(playerHand);
+                        itemPickedUp = hit.transform.GetComponent<IInteractable>();
+                        itemPickedUp.OnInteract(playerHand);
+                    }
+                    else
+                    {
+                        print("Nothing hit" + hit.transform.name);
                     }
                 }
             }
