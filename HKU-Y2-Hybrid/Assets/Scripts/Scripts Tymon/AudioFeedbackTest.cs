@@ -12,10 +12,12 @@ public class AudioFeedbackTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+#if UNITY_STANDALONE
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = Microphone.Start(null, true, 10, 44100);
         audioSource.loop = true;
         audioSource.mute = false;
         audioSource.Play();
+#endif
     }
 }
