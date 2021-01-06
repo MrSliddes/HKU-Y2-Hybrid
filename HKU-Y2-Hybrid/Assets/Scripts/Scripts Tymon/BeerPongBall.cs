@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeerPongBall : MonoBehaviour, IAbleToPickUp
+public class BeerPongBall : MonoBehaviour, IInteractable
 {
     public Rigidbody rb;
 
@@ -24,7 +24,7 @@ public class BeerPongBall : MonoBehaviour, IAbleToPickUp
         rb.isKinematic = false;
     }
 
-    public void PickUp(Transform parent)
+    public void OnInteract(Transform parent)
     {
         transform.SetParent(parent);
         rb.isKinematic = true;
@@ -33,7 +33,7 @@ public class BeerPongBall : MonoBehaviour, IAbleToPickUp
         print(transform.position);
     }
 
-    public void Trow()
+    public void OnDeInteract()
     {
         transform.parent = null;
         rb.isKinematic = false;
