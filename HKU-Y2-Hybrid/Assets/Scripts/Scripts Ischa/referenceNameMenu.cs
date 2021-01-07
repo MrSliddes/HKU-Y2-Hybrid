@@ -8,6 +8,6 @@ public class referenceNameMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = InfoHolderMenu.theName;
+        gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = InfoHolderMenu.theName; 
     }
 }
