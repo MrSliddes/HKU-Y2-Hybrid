@@ -6,6 +6,7 @@ public class WebCamDisplay : MonoBehaviour
 {
     private WebCamTexture webCamTexture;
     public Material matWebcam;
+    public Material matWebcamUI;
 
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,7 @@ public class WebCamDisplay : MonoBehaviour
         webCamTexture = new WebCamTexture();
         //this.GetComponent<MeshRenderer>().material.mainTexture = webCamTexture;
         matWebcam.mainTexture = webCamTexture;
+        if(matWebcamUI != null) matWebcamUI.mainTexture = webCamTexture;
         StartCoroutine(CheckCam());
     }
 

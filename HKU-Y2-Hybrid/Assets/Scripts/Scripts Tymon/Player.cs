@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                if(Physics.Raycast(ray, out hit))
+                if(Physics.Raycast(ray, out hit, 2))
                 {
                     // Ray hit check if component
                     if(hit.transform.GetComponent<IInteractable>() != null)
