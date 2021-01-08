@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Scenes Mitchell/3DMountain.unity
     guid: 4facea8da67fb7e43b3d4e5874a83510
   - enabled: 1
-    path: Assets/Scenes/Scenes Mitchell/3DAppartement.unity
+    path: Assets/Scenes/Scenes Mitchell/3DAppartementROBOTS.unity
     guid: ec2fb3d7d98fcdb4598190f5f66b9ba8
   m_configObjects: {}
