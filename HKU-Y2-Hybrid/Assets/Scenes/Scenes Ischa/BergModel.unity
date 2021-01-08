@@ -370,6 +370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: _lockoutV2MetKleuren
       objectReference: {fileID: 0}
+    - target: {fileID: 7039136949504752798, guid: 5dd2b6bdf83d23640967e45adab5dcf9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7708994254218913316, guid: 5dd2b6bdf83d23640967e45adab5dcf9, type: 3}
       propertyPath: m_RootOrder
       value: 3
