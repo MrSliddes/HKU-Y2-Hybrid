@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Scenes Ischa/MainMenu.unity
     guid: ac41b53c414dde9498aa6129a40ef351
   - enabled: 1
-    path: Assets/Scenes/Scenes Mitchell/3DAppartement.unity
+    path: Assets/Scenes/Scenes Mitchell/3DAppartementROBOTS.unity
     guid: ec2fb3d7d98fcdb4598190f5f66b9ba8
   m_configObjects: {}
