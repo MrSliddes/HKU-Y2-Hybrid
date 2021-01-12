@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     private Vector3 target = Vector3.zero;
 
-    private IInteractable itemPickedUp = null;
+    [HideInInspector] public IInteractable itemPickedUp = null;
 
     /// <summary>
     /// Shows what way the player wants to move

@@ -34,6 +34,7 @@ public class CaramelDancing : MonoBehaviour, IInteractable
         {
             item.SetActive(isOn);
         }
+        FindObjectOfType<Player>().itemPickedUp = null;//zodat in Player script niet itemPickedUp = true; terwijl je met de knop niks oppakt.
 
     }
 }
