@@ -11,10 +11,11 @@ public class Player : MonoBehaviour
     [Header("Components")]
     public Rigidbody rb;
     public Transform playerHand;
+    private new Vector3 saveHandPos;
 
     private Vector3 target = Vector3.zero;
 
-    private IInteractable itemPickedUp = null;
+    [HideInInspector] public IInteractable itemPickedUp = null;
 
     /// <summary>
     /// Shows what way the player wants to move
@@ -74,8 +75,11 @@ public class Player : MonoBehaviour
             if(itemPickedUp != null)
             {
                 // Do something with item
+                saveHandPos = playerHand.transform.position ;
+                playerHand.transform.position = gameObject.transform.GetChild(1).gameObject.transform.position +  1f * transform.forward;
                 itemPickedUp.OnDeInteract();
                 itemPickedUp = null;
+                playerHand.transform.position = saveHandPos;
             }
             else
             {

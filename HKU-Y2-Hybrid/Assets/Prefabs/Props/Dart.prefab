@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6959610720465736445}
   - component: {fileID: 6959610720465736444}
   - component: {fileID: 6959610720465736442}
+  - component: {fileID: 4573656831882111797}
+  - component: {fileID: 6207021232335679819}
   m_Layer: 0
   m_Name: Dart
   m_TagString: Untagged
@@ -76,6 +78,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6959610720465736444}
+--- !u!114 &4573656831882111797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959610720465736447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9254902, g: 0.88235295, b: 0.25882354, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &6207021232335679819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959610720465736447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5de95ff2a98e8841926470383a90a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldHighlightBool: 0
+  theOutline: {fileID: 4573656831882111797}
 --- !u!1 &7332159272143739009
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 638344538736210802}
   - component: {fileID: 638344538736210800}
   - component: {fileID: 638344538736210801}
+  - component: {fileID: 3446608960485647895}
+  - component: {fileID: 8894287440038817065}
   m_Layer: 0
   m_Name: Beerpong ball
   m_TagString: Untagged
@@ -62,6 +64,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 638344538736210800}
+--- !u!114 &3446608960485647895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638344538736210803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0.9245283, g: 0.8822603, b: 0.25729796, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &8894287440038817065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638344538736210803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5de95ff2a98e8841926470383a90a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldHighlightBool: 0
+  theOutline: {fileID: 3446608960485647895}
 --- !u!1 &638344538971783565
 GameObject:
   m_ObjectHideFlags: 0
