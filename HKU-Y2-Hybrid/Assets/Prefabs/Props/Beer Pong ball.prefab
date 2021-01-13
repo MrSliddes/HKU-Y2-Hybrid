@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 638344538736210801}
   - component: {fileID: 3446608960485647895}
   - component: {fileID: 8894287440038817065}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Beer Pong ball
   m_TagString: BeerPongBall
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 638344538971783569}
   - component: {fileID: 638344538971783570}
   - component: {fileID: 638344538971783571}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: BeerPongBall
   m_Icon: {fileID: 0}
