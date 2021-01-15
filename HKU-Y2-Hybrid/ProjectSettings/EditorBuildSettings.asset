@@ -8,7 +8,34 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scenes Tymon/Scene_Client.unity
     guid: cbd635128ad5e7747a5baacbbd8f308a
+  - enabled: 0
+    path: Assets/Scenes/Scenes Tymon/Scene_Server.unity
+    guid: 0492c3b3e1c27284bada3b339ceebdc9
+  - enabled: 0
+    path: Assets/Scenes/Scenes Mitchell/3DBlockout.unity
+    guid: 2b85af05124b3474391bc85f74292ec1
+  - enabled: 0
+    path: Assets/Scenes/Scenes Mitchell/3DMountain.unity
+    guid: 4facea8da67fb7e43b3d4e5874a83510
+  - enabled: 1
+    path: Assets/Scenes/Scenes Ischa/MainMenu.unity
+    guid: ac41b53c414dde9498aa6129a40ef351
+  - enabled: 0
+    path: Assets/Scenes/Scenes Ischa/RandomAorBtest.unity
+    guid: 8ce573d8c89efcb498de286760fdcca9
+  - enabled: 0
+    path: Assets/Scenes/Scenes Mitchell/3DAppartementROBOTS.unity
+    guid: ec2fb3d7d98fcdb4598190f5f66b9ba8
+  - enabled: 1
+    path: Assets/Scenes/Scenes Mitchell/3DAppartementKOEIEN.unity
+    guid: a060ac5f5a36f334ba232ae38937e28e
+  - enabled: 0
+    path: Assets/Scenes/Scenes Mitchell/ABTestOutline/3DAppartementKOEIEN NoOutline.unity
+    guid: 39753ddfe4bae8e4d87a297568674a48
+  - enabled: 0
+    path: Assets/Scenes/Scenes Mitchell/ABTestOutline/3DAppartementKOEIEN Outline.unity
+    guid: 062013b8f78f541468f5f00cf6bae375
   m_configObjects: {}
