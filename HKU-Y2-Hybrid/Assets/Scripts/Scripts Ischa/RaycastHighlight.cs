@@ -18,7 +18,7 @@ public class RaycastHighlight : MonoBehaviour
             {
                 //highLightScript = hit.transform.transform.GetComponent<ShouldHighlight>();
                 ShouldHighlight2 = hit.transform.GetComponent<ShouldHighlight>();
-                ShouldHighlight2.shouldHighlightBool = true;
+                if(ShouldHighlight2 != null) ShouldHighlight2.shouldHighlightBool = true;
             }
             else
             {
