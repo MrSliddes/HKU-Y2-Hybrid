@@ -75,11 +75,11 @@ public class Player : MonoBehaviour
             if(itemPickedUp != null)
             {
                 // Do something with item
-                saveHandPos = playerHand.transform.position ;
-                playerHand.transform.position = gameObject.transform.GetChild(1).gameObject.transform.position +  1f * transform.forward;
+                //saveHandPos = playerHand.transform.position;
+                //playerHand.transform.position = gameObject.transform.GetChild(1).gameObject.transform.position +  1f * transform.forward;
                 itemPickedUp.OnDeInteract();
                 itemPickedUp = null;
-                playerHand.transform.position = saveHandPos;
+                //playerHand.transform.position = saveHandPos;
             }
             else
             {

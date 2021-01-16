@@ -32,9 +32,7 @@ public class Dart : MonoBehaviour, IInteractable
 
         transform.SetParent(parent);
         rb.isKinematic = true;
-        print(transform.position);
         transform.localPosition = Vector3.zero;
-        print(transform.position);
         // Rotate forwards
         Vector3 newDir = Vector3.RotateTowards(transform.forward, parent.forward, 999f, 0.0f); // direction is kinda fucked
         transform.rotation = Quaternion.LookRotation(newDir);
@@ -43,8 +41,20 @@ public class Dart : MonoBehaviour, IInteractable
     public void OnDeInteract()
     {
         transform.parent = null;
+
+        // Cast ray, rot to ray end
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if(Physics.Raycast(ray, out hit))
+        {
+            Vector3 tarDir = hit.point - transform.position;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, tarDir, 999f, 999f); // direction is kinda fucked
+            transform.rotation = Quaternion.LookRotation(newDir);
+        }
+
         rb.isKinematic = false;
-        rb.AddForce(Camera.main.transform.forward * 10, ForceMode.Impulse);
+        rb.AddForce(transform.forward * 10, ForceMode.Impulse);
 
         // colliders on
         if(GetComponent<BoxCollider>() != null) GetComponent<BoxCollider>().enabled = true;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6959610720465736442}
   - component: {fileID: 4573656831882111797}
   - component: {fileID: 6207021232335679819}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ea7936a1cab7ac44bdb41059d3c02a4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.809
+      value: 0.026
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ea7936a1cab7ac44bdb41059d3c02a4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -155,7 +155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ea7936a1cab7ac44bdb41059d3c02a4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ea7936a1cab7ac44bdb41059d3c02a4, type: 3}
       propertyPath: m_LocalRotation.z
@@ -167,7 +167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ea7936a1cab7ac44bdb41059d3c02a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ea7936a1cab7ac44bdb41059d3c02a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -180,6 +180,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4ea7936a1cab7ac44bdb41059d3c02a4, type: 3}
       propertyPath: m_Name
       value: Dartpijl
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4ea7936a1cab7ac44bdb41059d3c02a4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ea7936a1cab7ac44bdb41059d3c02a4, type: 3}
