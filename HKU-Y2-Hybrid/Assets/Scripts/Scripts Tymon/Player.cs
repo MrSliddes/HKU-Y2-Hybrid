@@ -34,6 +34,21 @@ public class Player : MonoBehaviour
         //MoveToPosition();
         Movement();
         PickUpInteraction();
+
+        // Switch lockstate
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
     }
 
     private void FixedUpdate()
